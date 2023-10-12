@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+    application:
+        container_name: terms-module-chromium-bundle_app
+        build: docker
+        volumes:
+            - .:/app:rw,cached
+            - ~/.composer:/home/application/.composer:cached
+            - ~/.ssh:/home/application/.ssh:cached

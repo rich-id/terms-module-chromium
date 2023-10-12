@@ -1,0 +1,67 @@
+{
+    "name": "rich-id/terms-module-chromium-bundle",
+    "description": "A magic bundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "RichId",
+            "homepage": "https://www.rich-id.com"
+        }
+    ],
+    "support": {
+        "email": "contact@rich-id.com",
+        "source": "https://github.com/rich-id/terms-module-chromium",
+        "docs": "https://github.com/rich-id/terms-module-chromium/blob/master/README.md",
+        "issues": "https://github.com/rich-id/terms-module-chromium/issues"
+    },
+    "require": {
+        "php": ">=7.3|^8.0",
+        "chrome-php/chrome": "^1.7",
+        "rich-id/terms-module-bundle": "^2.0",
+        "richcongress/bundle-toolbox": "^1.1",
+        "sensio/framework-extra-bundle": "^5.0|^6.0"
+    },
+    "require-dev": {
+        "doctrine/doctrine-bundle": "^2.0",
+        "phpunit/phpunit": "^9.5",
+        "richcongress/static-analysis": "^0.1",
+        "richcongress/test-suite": "^0.1",
+        "roave/security-advisories": "dev-latest",
+        "symfony/monolog-bundle": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "RichId\\TermsModuleChromiumBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RichId\\TermsModuleChromiumBundle\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "discard-changes": true,
+        "sort-packages": true
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "[ $COMPOSER_DEV_MODE -eq 0 ] || cghooks add --ignore-lock"
+        ],
+        "post-update-cmd": [
+            "[ $COMPOSER_DEV_MODE -eq 0 ] || cghooks update"
+        ]
+    },
+    "extra": {
+        "hooks": {
+            "pre-commit": [
+                "./bin/php-cs-fixer fix"
+            ],
+            "pre-push": [
+                "./bin/php-cs-fixer fix --dry-run",
+                "./bin/static_analysis"
+            ]
+        }
+    }
+}

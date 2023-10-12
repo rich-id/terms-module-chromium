@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    RichId\TermsModuleChromiumBundle\Infrastructure\Pdf\TermsVersionSignaturePdfChromiumGenerator: ~
+
+    RichId\TermsModuleChromiumBundle\Tests\Resources\Fixtures\DummyUserFixtures: ~
+    RichId\TermsModuleChromiumBundle\Tests\Resources\Fixtures\TermsFixtures: ~
+    RichId\TermsModuleChromiumBundle\Tests\Resources\Fixtures\TermsVersionFixtures: ~
+    RichId\TermsModuleChromiumBundle\Tests\Resources\Fixtures\TermsVersionSignatureFixtures: ~

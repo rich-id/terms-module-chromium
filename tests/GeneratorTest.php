@@ -4,16 +4,14 @@ declare(strict_types=1);
 
 namespace RichId\TermsModuleChromiumBundle\Tests;
 
-use RichCongress\TestFramework\TestConfiguration\Annotation\TestConfig;
+use RichCongress\TestFramework\TestConfiguration\Attribute\TestConfig;
 use RichCongress\TestSuite\TestCase\TestCase;
 use RichId\TermsModuleBundle\Domain\Entity\TermsVersionSignature;
 use RichId\TermsModuleChromiumBundle\Infrastructure\Pdf\TermsVersionSignaturePdfChromiumGenerator;
 use RichId\TermsModuleChromiumBundle\Tests\Resources\Entity\DummyUser;
 
-/**
- * @covers \RichId\TermsModuleChromiumBundle\Infrastructure\Pdf\TermsVersionSignaturePdfChromiumGenerator
- * @TestConfig("fixtures")
- */
+/** @covers \RichId\TermsModuleChromiumBundle\Infrastructure\Pdf\TermsVersionSignaturePdfChromiumGenerator */
+#[TestConfig('fixtures')]
 final class GeneratorTest extends TestCase
 {
     /** @var TermsVersionSignaturePdfChromiumGenerator */

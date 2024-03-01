@@ -1,4 +1,4 @@
-FROM richcongress/php:7.3
+FROM richcongress/php:8.1
 
 USER root
 RUN apt update --allow-unauthenticated --allow-insecure-repositories \

@@ -8,34 +8,21 @@ use Doctrine\ORM\Mapping as ORM;
 use RichId\TermsModuleBundle\Domain\Entity\TermsUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-/**
- * @ORM\Entity()
- * @ORM\Table(name="app_user")
- */
+#[ORM\Entity()]
+#[ORM\Table(name: 'app_user')]
 final class DummyUser implements UserInterface, TermsUserInterface
 {
-    /**
-     * @var int
-     *
-     * @ORM\Id
-     * @ORM\Column(type="integer", options={"unsigned":true})
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
+    private int $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=255, nullable=false)
-     */
-    private $username;
+    #[ORM\Column(type: 'string', length: 255, nullable: false)]
+    private string $username;
 
-    /**
-     * @var array<string>
-     *
-     * @ORM\Column(type="array", nullable=false, name="roles")
-     */
-    private $roles = [];
+    /** @var array<string> */
+    #[ORM\Column(name: 'roles', type: 'json', nullable: false)]
+    private array $roles = [];
 
     public function getId(): ?int
     {
